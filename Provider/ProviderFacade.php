@@ -1,5 +1,5 @@
 <?php
-require_once('../db.php');
+include '../config.php';
 session_start();
 ?>
 
@@ -48,9 +48,8 @@ session_start();
                     $ad_password = $_POST['upassword'];
 
 
-                    $con = dbConnection();
                     $sql = "select * from provider_table where Email='{$ad_email}' and Password='{$ad_password}'";
-                    $result = mysqli_query($con, $sql);
+                    $result = mysqli_query($conn, $sql);
                     $row = mysqli_fetch_assoc($result);
                     if ($row) {
                         $_SESSION['Name'] = $row['Name'];

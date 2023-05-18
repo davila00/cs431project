@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 
+<?php
+include '../config.php';
+session_start();
+?>
+
 <head>
     <title>Provider Register</title>
     <link rel="stylesheet" type="text/css" href="../Assets/Register.css" />

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 23, 2020 at 06:51 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Generation Time: May 18, 2023 at 08:40 AM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 
@@ -28,55 +28,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `provider_table`
---
-
-CREATE TABLE `provider_table` (
-  `Name` varchar(255) NOT NULL,
-  `Email` varchar(255) NOT NULL,
-  `Password` varchar(255) NOT NULL,
-  `Mobile` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `provider_table`
---
-
-INSERT INTO `admin_table` (
-  `Name`,
-  `Email`,
-  `Password`,
-  `Mobile`
-) VALUES (
-  'Fahim Illusion',
-  'fahim121@gmail.com',
-  'fahim121',
-  '1833523479'
-),
-(
-  'Sadi',
-  'sadi121@gmail.com',
-  'safwan121',
-  '1717123342'
-);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `appointmenttable`
 --
 
 CREATE TABLE `appointmenttable` (
-  `PatientEmail` varchar(233) NOT NULL,
-  `DoctorEmail` varchar(233) NOT NULL,
-  `PatientName` varchar(233) NOT NULL,
-  `DoctorName` varchar(233) NOT NULL,
+  `PatientEmail` varchar(255) NOT NULL,
+  `DoctorEmail` varchar(255) NOT NULL,
+  `PatientName` varchar(255) NOT NULL,
+  `DoctorName` varchar(255) NOT NULL,
   `AppointmentDate` date NOT NULL,
   `ShortDescription` varchar(512) DEFAULT NULL,
   `Advice` varchar(512) DEFAULT NULL,
-  `PatientAge` int(233) NOT NULL,
-  `Slot` varchar(233) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `PatientAge` int(255) NOT NULL,
+  `Slot` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `appointmenttable`
@@ -93,92 +58,26 @@ INSERT INTO `appointmenttable` (
   `PatientAge`,
   `Slot`
 ) VALUES (
-  '',
-  '',
-  'Fahim Kobra',
-  'Ilias Kobra',
-  '2020-09-29',
-  'asdasd',
-  NULL,
-  19,
-  '9am-1pm'
+  'testpatient@gmail.com',
+  'testdoctor@gmail.com',
+  'Test Patient',
+  'Test Doctor',
+  '2023-05-17',
+  'I have a slight headache, I just need some Ibuprofen ',
+  ' Okay, I will contact the nearby provider to get you the needed medicine',
+  22,
+  '9:00 - 5:00'
 ),
 (
-  '',
-  '',
-  'Fahim Kobra',
-  'Ilias Kobra',
-  '2020-09-23',
-  'HeadAche',
-  NULL,
-  19,
-  '9am-1pm'
-),
-(
-  '',
-  '',
-  'Fahim Kobra',
-  'Ilias Kobra',
-  '2020-09-22',
-  'Headache, Dyhoria',
-  NULL,
-  21,
-  '9am-1pm'
-),
-(
-  'patientkobra123@gmail.com',
-  'fahmida121@gmail.com',
-  'Fahim Kobra',
-  'Fahmida Alam',
-  '2020-09-23',
-  'Headache',
-  ' Napa Extra',
-  19,
-  '2pm-5pm'
-),
-(
-  'kabir121@gmail.com',
-  'fahmida121@gmail.com',
-  'Ahsan Kabir',
-  'Fahmida Alam',
-  '2020-09-30',
-  'Headache',
-  ' Meet me at 4.30P.M',
-  21,
-  '2pm-5pm'
-),
-(
-  'kabir121@gmail.com',
-  'asgar234@gmail.com',
-  'Ahsan Kabir',
-  'Asgar Ali',
-  '2020-09-25',
-  'Acute pain in hands',
-  ' Okey, come at 4.P.M\r\n',
-  23,
-  '2-5pm'
-),
-(
-  'kabir121@gmail.com',
-  'asgar234@gmail.com',
-  'Ahsan Kabir',
-  'Asgar Ali',
-  '2020-09-25',
-  'Acute pain in hands',
-  ' Okey, come at 4.P.M\r\n',
-  23,
-  '2-5pm'
-),
-(
-  'kabir121@gmail.com',
-  'fahmida121@gmail.com',
-  'Ahsan Kabir',
-  'Fahmida Alam',
-  '2020-09-30',
-  'Heart Disease',
-  NULL,
-  21,
-  '2pm-5pm'
+  'testpatient@gmail.com',
+  'testdoctor@gmail.com',
+  'Test Patient',
+  'Test Doctor',
+  '2023-05-18',
+  'This is my message to Test Doctor',
+  ' This is my message to Test Patient',
+  22,
+  '9:00 - 5:00'
 );
 
 -- --------------------------------------------------------
@@ -188,16 +87,42 @@ INSERT INTO `appointmenttable` (
 --
 
 CREATE TABLE `doctorrequest_table` (
-  `Name` varchar(233) NOT NULL,
-  `Address` varchar(233) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `Address` varchar(255) NOT NULL,
   `Gender` varchar(10) NOT NULL,
   `MobileNo` int(10) NOT NULL,
-  `Email` varchar(233) NOT NULL,
-  `Password` varchar(233) NOT NULL,
-  `Department` varchar(233) NOT NULL,
-  `Location` varchar(233) NOT NULL,
-  `FileName` varchar(233) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Email` varchar(255) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `Department` varchar(255) NOT NULL,
+  `Location` varchar(255) NOT NULL,
+  `FileName` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `doctorrequest_table`
+--
+
+INSERT INTO `doctorrequest_table` (
+  `Name`,
+  `Address`,
+  `Gender`,
+  `MobileNo`,
+  `Email`,
+  `Password`,
+  `Department`,
+  `Location`,
+  `FileName`
+) VALUES (
+  'John Adams',
+  '4367 Pickleberry Cir,',
+  'Male',
+  1234567890,
+  'johnadams@gmail.com',
+  'japickle',
+  'Nephrologist',
+  ' Dreamers, CA',
+  'doctor/'
+);
 
 -- --------------------------------------------------------
 
@@ -206,16 +131,16 @@ CREATE TABLE `doctorrequest_table` (
 --
 
 CREATE TABLE `maindoctable` (
-  `Name` varchar(233) NOT NULL,
-  `Address` varchar(233) NOT NULL,
-  `Gender` varchar(233) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `Address` varchar(255) NOT NULL,
+  `Gender` varchar(255) NOT NULL,
   `MobileNo` int(10) NOT NULL,
-  `Email` varchar(233) NOT NULL,
+  `Email` varchar(255) NOT NULL,
   `Department` text NOT NULL,
-  `Location` varchar(233) NOT NULL,
-  `Password` varchar(233) NOT NULL,
-  `Slot` varchar(233) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Location` varchar(255) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `Slot` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `maindoctable`
@@ -232,81 +157,15 @@ INSERT INTO `maindoctable` (
   `Password`,
   `Slot`
 ) VALUES (
-  'Sagor',
-  'Bashundhara, G block',
+  'Test Doctor',
+  '213 Narda St',
   'Male',
-  '1772323421',
-  'sagor121@gmail.com',
-  'surgery',
-  ' Location1 ',
-  '',
-  NULL
-),
-(
-  'Sagor',
-  'Bashundhara, G block',
-  'Male',
-  '1772323421',
-  'sagor121@gmail.com',
-  'surgery',
-  ' Location1 ',
-  '',
-  NULL
-),
-(
-  'Ilias Kobra',
-  'Bashundhara, G Block, 23 Road',
-  'Male',
-  '0184534567',
-  'kobra121@gmail.com',
-  'cardiologist',
-  'Mirpur Popular Hospital, Dhaka',
-  'abc121',
-  '9am-1pm'
-),
-(
-  'Siamul Islam',
-  'Mirpur 2',
-  'Male',
-  '1918181812',
-  'siamul121@gmail.com',
-  'orthopedic',
-  'Mirpur Popular Hospital,Dhaka',
-  'siamul121',
-  NULL
-),
-(
-  'Fahmida Alam',
-  'Baridhara G Block',
-  'Male',
-  '182232323',
-  'fahmida121@gmail.com',
-  'gynecologist',
-  'Baridhara General, Hospital',
-  'fahmida',
-  '2pm-5pm'
-),
-(
-  'Pritom',
-  'Ahmed',
-  'Male',
-  '1912323212',
-  'pritom132@gmail.com',
+  2147483647,
+  'testdoctor@gmail.com',
   'medicine',
-  'Ibne-Sina Diagnostic Centre, Dhaka',
-  'pritom132',
-  NULL
-),
-(
-  'Asgar Ali',
-  'Motijheel',
-  'Male',
-  '1833432322',
-  'asgar234@gmail.com',
-  'orthopedic',
-  'Square Hospital And Diagonistic Center',
-  'asgar234',
-  '2-5pm'
+  'Westminster, CA',
+  '123',
+  '9:00 - 5:00'
 );
 
 -- --------------------------------------------------------
@@ -316,13 +175,13 @@ INSERT INTO `maindoctable` (
 --
 
 CREATE TABLE `mainpatienttable` (
-  `Name` varchar(233) NOT NULL,
-  `Email` varchar(233) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
   `Birth_Date` date NOT NULL,
-  `Gender` varchar(233) NOT NULL,
-  `Location` varchar(233) NOT NULL,
-  `Password` varchar(233) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Gender` varchar(255) NOT NULL,
+  `Location` varchar(255) NOT NULL,
+  `Password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `mainpatienttable`
@@ -336,20 +195,12 @@ INSERT INTO `mainpatienttable` (
   `Location`,
   `Password`
 ) VALUES (
-  'Ahsan Kabir',
-  'kabir121@gmail.com',
-  '2014-02-21',
+  'Test Patient',
+  'testpatient@gmail.com',
+  '2000-01-01',
   'male',
-  'Kuratoli,Dhaka',
-  'kabir121'
-),
-(
-  'Fahim Kobra',
-  'patientkobra123@gmail.com',
-  '2002-12-02',
-  'Male',
-  'Bashundhara, G Block',
-  'abc'
+  'Anaheim, CA',
+  '123'
 );
 
 -- --------------------------------------------------------
@@ -359,13 +210,62 @@ INSERT INTO `mainpatienttable` (
 --
 
 CREATE TABLE `patientrequest_table` (
-  `Name` varchar(200) NOT NULL,
-  `Email` varchar(200) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
   `Birth_Date` date NOT NULL,
-  `Gender` varchar(200) NOT NULL,
-  `Location` varchar(200) NOT NULL,
-  `Password` varchar(200) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `Gender` varchar(255) NOT NULL,
+  `Location` varchar(255) NOT NULL,
+  `Password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `patientrequest_table`
+--
+
+INSERT INTO `patientrequest_table` (
+  `Name`,
+  `Email`,
+  `Birth_Date`,
+  `Gender`,
+  `Location`,
+  `Password`
+) VALUES (
+  'Shasha Pines',
+  'sashap@gmail.com',
+  '1996-06-14',
+  'Female',
+  ' Fullerton, CA',
+  'sp1996'
+);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `provider_table`
+--
+
+CREATE TABLE `provider_table` (
+  `Name` varchar(255) NOT NULL,
+  `Email` varchar(255) NOT NULL,
+  `Password` varchar(255) NOT NULL,
+  `Location` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `provider_table`
+--
+
+INSERT INTO `provider_table` (
+  `Name`,
+  `Email`,
+  `Password`,
+  `Location`
+) VALUES (
+  'AltaMed',
+  'altamed@gmail.com',
+  '123',
+  'Garden Grove, CA'
+);
 
 --
 -- Indexes for dumped tables
